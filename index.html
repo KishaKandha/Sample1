@@ -32,7 +32,8 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html"><span class="fa fa-address-card fa-lg"></span>Contact</a></li>
                  </ul>
                  <span class="navbar-text" >
-                     <a data-toggle="modal" data-target="#LoginModal">
+                     <!--<a data-toggle="modal" data-target="#LoginModal">-->
+                    <a href="#loginlink">
                          <span class="fa fa-sign-in"></span>
                          Login
                      </a>
@@ -93,8 +94,13 @@
                     <img src="img/logo.png" class="image-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center  text-center">
-                    <a  data-toggle="modal" data-target="#reservemodal" role="button" class="btn  btn-warning btn-lg btn-block"  
-                      data-html="true"  data-placement="bottom"  href="#reserveform">Reserve Table</a>
+                    <a  role="button" class="btn  btn-warning btn-lg btn-block"  id="Reserve"
+                        href="#reserveform">Reserve Table</a>
+
+                       <!--data-* attributes
+                    <a  data-toggle="modal" data-target="#reservemodal"  role="button" class="btn  btn-warning btn-lg btn-block"  
+                      data-html="true"  data-placement="bottom"  href="#reserveform">Reserve Table</a>-->
+
                    <!-- Tooltip
                         <a  role="button" class="btn  btn-warning btn-lg btn-block"  
                      data-toggle="tooltip"  data-html="true"  title="Or Call us at <br><strong>+852 12345678 </strong>"
@@ -367,8 +373,21 @@
 
 
 <!--JQuery syntax for carousel play and pause in one button -->
-
 <script>
+    $(document).ready(function(){
+        $("#Reserve").click(function(){ 
+            $("#reservemodal").modal("toggle");  
+          });
+
+        });
+    
+      $('a[href$="#loginlink"]').on( "click", function() {
+         $("#LoginModal").modal("show");
+          });
+         
+         
+
+
     $(document).ready(function(){
         $("#mycarousel").carousel( { interval: 2000 } );
         $("#carouselButton").click(function(){
